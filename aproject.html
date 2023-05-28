@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+  <title>Prosper check box</title>
+</head>
+<html>
+  <body>
+
+    <span class="js-tool-tip"></span>
+    <h1>What is your main focus for today ?</h1>
+
+    
+    <p class="js-my-goal-display class"></p>
+
+    <input type="Text"  class="js-my-goal text-box" onkeydown="insertMyGoal(event)">
+
+   
+
+
+
+
+
+    <style>
+
+      *{
+        font-family: arial;
+        background-color: rgb(246, 253, 255);
+      }
+      .text-box{
+        border: none;
+        border-bottom: 1px solid black;
+        width: 30rem;
+        padding: 20px;
+        font-size: 20px;
+        
+      }
+
+      .tool-tip-style{
+        background-color: black transparent transparent transparent ;
+        color: white;
+        padding: 2px 1rem 2px 1rem;
+        border-radius: 10px;
+               
+       
+      }
+     
+    </style>
+
+
+    <script>
+      function insertMyGoal(event){
+        if(event.key==='Enter'){
+         const myGoal= document.querySelector('.js-my-goal')
+         let myGoalValue = myGoal.value;
+
+         let myGoalValueDisplay = document.querySelector('.js-my-goal-display') 
+
+         .innerHTML = `<input type="checkbox"
+         onclick="check()">${myGoalValue}`;
+         console.log(myGoalValue)
+         myGoal.value = "";
+        }
+      }
+
+      function check(){
+        let checkbox = document.getElementById('checkbox');
+
+        let toolTip = document.querySelector('.js-tool-tip')
+        .innerHTML= `<span class="tool-tip-style checkbox">Bravo!</span>
+        <style>
+          *{
+            font-family: arial;
+          }
+          .tool-tip-style{
+            background-color: black;
+            color: white;
+            padding: 2px 1rem 2px 1rem;
+            border-radius: 10px;
+            margin-left: 200px;
+            
+          }
+
+          .class{
+            text-decoration: line-through;
+          }
+      
+          </style>
+         
+        `
+        console.log(toolTip);
+
+        if(checkbox.checked){
+          toolTip.innerHTML = `
+            <span class="tool-tip-style">Awesome!</span>
+            <style>
+              * {
+                font-family: arial;
+              }
+              .tool-tip-style {
+                background-color: black;
+                color: white;
+                padding: 2px 1rem 2px 1rem;
+                border-radius: 10px;
+                margin-left: 200px;
+              }
+              .class {
+                text-decoration: line-through;
+              }
+            </style>
+          `;
+
+        } else {
+          toolTip.innerHTML = '';
+        }
+        
+      }
+
+     
+
+    </script>
+
+  </body>
+</html>
